@@ -1,0 +1,33 @@
+<h1>Show Search</h1>
+
+<ul>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @search.title %>
+  </li>
+
+  <li>
+    <strong>Seeds:</strong>
+    <%= @search.seeds %>
+  </li>
+
+  <li>
+    <strong>Publish date:</strong>
+    <%= @search.publish_date %>
+  </li>
+
+  <li>
+    <strong>Publish year:</strong>
+    <%= @search.publish_year %>
+  </li>
+
+  <li>
+    <strong>Language:</strong>
+    <%= @search.language %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.search_path(@conn, :edit, @search) %></span> |
+<span><%= link "Back", to: Routes.search_path(@conn, :index) %></span>
