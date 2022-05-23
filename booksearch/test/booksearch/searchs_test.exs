@@ -24,6 +24,14 @@ defmodule Booksearch.SearchsTest do
     end
   end
 
+  describe "Send_to_api/1" do
+    test "Confirm a successful HTTPoison request is sent" do
+      user_input = "the lord of the rings"
+
+      assert Search.send_to_api() == {:ok, _response}
+    end
+  end
+
   describe "search" do
     alias Booksearch.Searchs.Search
 
