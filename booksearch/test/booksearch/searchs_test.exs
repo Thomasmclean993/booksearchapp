@@ -2,18 +2,25 @@ defmodule Booksearch.SearchsTest do
   use Booksearch.DataCase
 
   alias Booksearch.Searchs
+  alias Booksearch.Searchs.Search
 
   describe "convert_query/1" do
-    test "Successfully convert a query to the correct format" do
 
+    test "Successfully convert a query to the correct format" do
+      user_input = "the Lord of the Rings"
+      assert Search.convert_query(user_input) == "the+lord+of+the+rings"
     end
 
     test "converts a single word response" do
+      user_input = "Lord"
 
+      assert Search.convert_query(user_input) == "lord"
     end
 
     test "converts a empty response without adding unnecessary +" do
+      empty_input = " "
 
+      assert Search.convert_query(empty_input) == "Not an acceptable query, Please try again."
     end
   end
 

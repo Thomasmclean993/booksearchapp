@@ -26,7 +26,11 @@ defmodule Booksearch.Searchs.Search do
 
   end
 
-  def convert_query() do
-    
+  def convert_query(string) when string == " ", do: "Not an acceptable query, Please try again."
+
+  def convert_query(string) do
+    string
+    |> String.downcase
+    |> String.replace(" ", "+")
   end
 end
