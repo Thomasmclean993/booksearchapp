@@ -27,8 +27,11 @@ defmodule Booksearch.SearchsTest do
   describe "Send_to_api/1" do
     test "Confirm a successful HTTPoison request is sent" do
       user_input = "the lord of the rings"
+      response = {test => json}
 
-      assert Search.send_to_api() == {:ok, _response}
+      expect HTTPoison.get(_url), do: {:ok, response}
+
+      assert Search.send_to_api(user_input) == :ok
     end
   end
 

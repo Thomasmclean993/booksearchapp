@@ -22,8 +22,8 @@ defmodule Booksearch.Searchs.Search do
     |> validate_required([:title, :seeds, :publish_date, :publish_year, :language])
   end
 
-  def send_to_bookapi(query) do
-
+  def send_to_api(user_input) do
+    HTTPoison.get("http://openlibrary.org/search.json?q=#{user_input}",[], [ssl: [versions: [:"tlsv1.2"]]])
   end
 
   def convert_query(string) when string == " ", do: "Not an acceptable query, Please try again."
